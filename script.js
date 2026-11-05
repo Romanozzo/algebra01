@@ -50,9 +50,70 @@ function configurarPasos(idBoton, idLista) {
 
 configurarPasos("btn-pasos", "pasos"); // Lección 3
 configurarPasos("btn-pasos-4", "pasos-4"); // Lección 4
+configurarPasos("btn-pasos-5", "pasos-5"); // Lección 5
 
 /* ------------------------------------------------------------
-   3. CUESTIONARIO
+   3. CALCULADORA DE ECUACIONES CUADRÁTICAS (Lección 5)
+   ------------------------------------------------------------ */
+const coefA = document.getElementById("coef-a");
+const coefB = document.getElementById("coef-b");
+const coefC = document.getElementById("coef-c");
+const salidaDisc = document.getElementById("discriminante");
+const salidaRaiz1 = document.getElementById("raiz-1");
+const salidaRaiz2 = document.getElementById("raiz-2");
+const mensajeCuadratica = document.getElementById("mensaje-cuadratica");
+
+// Redondea a 3 decimales y elimina ceros sobrantes: 2.5000001 → "2.5"
+function formatearNumero(valor) {
+  return Number(valor.toFixed(3)).toString();
+}
+
+function calcularCuadratica() {
+  const a = Number(coefA.value);
+  const b = Number(coefB.value);
+  const c = Number(coefC.value);
+
+  // Sin "a" no hay término cuadrático
+  if (a === 0) {
+    salidaDisc.textContent = "—";
+    salidaRaiz1.textContent = "—";
+    salidaRaiz2.textContent = "—";
+    mensajeCuadratica.textContent = "Si a = 0 no es una ecuación cuadrática.";
+    return;
+  }
+
+  const discriminante = b * b - 4 * a * c;
+  salidaDisc.textContent = formatearNumero(discriminante);
+
+  // Δ < 0: la raíz cuadrada no existe en los números reales
+  if (discriminante < 0) {
+    salidaRaiz1.textContent = "—";
+    salidaRaiz2.textContent = "—";
+    mensajeCuadratica.textContent = "Discriminante negativo: no hay soluciones reales.";
+    return;
+  }
+
+  const raiz = Math.sqrt(discriminante);
+  const x1 = (-b + raiz) / (2 * a);
+  const x2 = (-b - raiz) / (2 * a);
+
+  salidaRaiz1.textContent = formatearNumero(x1);
+  salidaRaiz2.textContent = formatearNumero(x2);
+
+  mensajeCuadratica.textContent =
+    discriminante === 0
+      ? "Discriminante cero: una única solución (doble)."
+      : "Discriminante positivo: dos soluciones reales.";
+}
+
+// Escuchamos los tres campos y calculamos también al cargar la página
+[coefA, coefB, coefC].forEach((campo) => {
+  campo.addEventListener("input", calcularCuadratica);
+});
+calcularCuadratica();
+
+/* ------------------------------------------------------------
+   4. CUESTIONARIO
    ------------------------------------------------------------ */
 // Cada pregunta guarda el texto, las opciones y el índice de la correcta (empieza en 0)
 const preguntas = [
@@ -103,6 +164,18 @@ const preguntas = [
     opciones: ["(x + 3)(x + 4)", "(x + 2)(x + 6)", "(x + 12)(x + 1)"],
     correcta: 0,
     explicacion: "3 + 4 = 7 y 3 · 4 = 12, así que los factores son (x + 3)(x + 4).",
+  },
+  {
+    texto: "Resuelve: x² − 5x + 6 = 0",
+    opciones: ["x = 2 y x = 3", "x = −2 y x = −3", "x = 1 y x = 6"],
+    correcta: 0,
+    explicacion: "Se factoriza como (x − 2)(x − 3) = 0, así que x = 2 o x = 3.",
+  },
+  {
+    texto: "En x² + 4x + 4 = 0, ¿cuántas soluciones reales hay?",
+    opciones: ["Dos", "Una (doble)", "Ninguna"],
+    correcta: 1,
+    explicacion: "Δ = 4² − 4 · 1 · 4 = 0, así que hay una solución doble: x = −2.",
   },
 ];
 
@@ -208,4 +281,8 @@ function dibujarQuiz() {
 }
 
 btnReiniciar.addEventListener("click", dibujarQuiz);
+
+// El total de preguntas se calcula solo a partir del array
+document.getElementById("total-preguntas").textContent = preguntas.length;
+
 dibujarQuiz(); // arrancamos el cuestionario al cargar la página

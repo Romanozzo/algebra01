@@ -17,6 +17,7 @@
         <a href="#leccion-2">Lección 2</a>
         <a href="#leccion-3">Lección 3</a>
         <a href="#leccion-4">Lección 4</a>
+        <a href="#leccion-5">Lección 5</a>
         <a href="#practica">Práctica</a>
       </div>
     </nav>
@@ -217,14 +218,109 @@
       </div>
     </section>
 
+    <!-- ============ LECCIÓN 5 ============ -->
+    <section id="leccion-5" class="section">
+      <p class="badge">Lección 5</p>
+      <h2>Ecuaciones cuadráticas</h2>
+
+      <p>
+        Una ecuación es <strong>cuadrática</strong> cuando la incógnita aparece elevada al cuadrado.
+        Su forma general es:
+      </p>
+
+      <p class="formula formula-big">ax² + bx + c = 0</p>
+      <p class="muted">
+        Donde <span class="math">a</span>, <span class="math">b</span> y <span class="math">c</span>
+        son números y <span class="math">a ≠ 0</span>.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>1. Factorizando</h3>
+          <p class="formula">x² − 5x + 6 = 0</p>
+          <p class="muted">(x − 2)(x − 3) = 0 → x = 2 o x = 3</p>
+        </article>
+
+        <article class="card card-accent">
+          <h3>2. Fórmula general</h3>
+          <p class="formula">x = (−b ± √(b² − 4ac)) / 2a</p>
+          <p class="muted">Funciona siempre, aunque no se pueda factorizar.</p>
+        </article>
+
+        <article class="card">
+          <h3>3. Discriminante</h3>
+          <p class="formula">Δ = b² − 4ac</p>
+          <p class="muted">Nos dice cuántas soluciones reales hay.</p>
+        </article>
+      </div>
+
+      <div class="example">
+        <h3>Ejemplo resuelto paso a paso</h3>
+        <p class="formula formula-big">x² − 5x + 6 = 0</p>
+
+        <button class="btn btn-primary" id="btn-pasos-5" type="button">
+          Ver los pasos
+        </button>
+
+        <ol class="steps" id="pasos-5" hidden>
+          <li>
+            <span class="step-title">Paso 1: identifica a, b y c</span>
+            <span class="math">a = 1</span>, <span class="math">b = −5</span>, <span class="math">c = 6</span>.
+          </li>
+          <li>
+            <span class="step-title">Paso 2: calcula el discriminante</span>
+            <span class="math">Δ = (−5)² − 4 · 1 · 6 = 25 − 24 = 1</span>.
+            Como es positivo, hay dos soluciones.
+          </li>
+          <li>
+            <span class="step-title">Paso 3: aplica la fórmula</span>
+            <span class="math">x = (5 ± √1) / 2</span> →
+            <span class="math">x₁ = (5 + 1) / 2 = 3</span> y
+            <span class="math">x₂ = (5 − 1) / 2 = 2</span>.
+          </li>
+          <li>
+            <span class="step-title">Paso 4: comprueba</span>
+            <span class="math">3² − 5 · 3 + 6 = 9 − 15 + 6 = 0</span> ✓
+          </li>
+        </ol>
+      </div>
+
+      <div class="interactive">
+        <h3>Calcula las raíces tú mismo</h3>
+        <p>
+          Escribe los coeficientes de <span class="math">ax² + bx + c = 0</span>
+          y mira el resultado al instante.
+        </p>
+
+        <div class="coefficients">
+          <label>a <input type="number" id="coef-a" value="1" step="1"></label>
+          <label>b <input type="number" id="coef-b" value="-5" step="1"></label>
+          <label>c <input type="number" id="coef-c" value="6" step="1"></label>
+        </div>
+
+        <p class="result">Δ = <strong id="discriminante">1</strong></p>
+        <p class="result">
+          x₁ = <strong id="raiz-1">3</strong> &nbsp;·&nbsp;
+          x₂ = <strong id="raiz-2">2</strong>
+        </p>
+        <p class="muted" id="mensaje-cuadratica">Discriminante positivo: dos soluciones reales.</p>
+      </div>
+
+      <div class="tip">
+        <strong>Atajo:</strong> antes de lanzarte a la fórmula, prueba a factorizar. Con números
+        pequeños casi siempre es más rápido. Y recuerda: <span class="math">Δ &lt; 0</span>
+        significa que no hay soluciones reales.
+      </div>
+    </section>
+
     <!-- ============ PRÁCTICA ============ -->
     <section id="practica" class="section">
       <p class="badge">Práctica</p>
       <h2>Pon a prueba lo aprendido</h2>
-      <p class="muted">8 preguntas. Elige una respuesta y recibirás feedback al instante.</p>
+      <p class="muted"><span id="total-preguntas">…</span> preguntas. Elige una respuesta y recibirás feedback al instante.</p>
 
       <div class="score-bar">
-        <span id="progreso-texto">Aciertos: 0 de 8</span>
+        <span id="progreso-texto">Aciertos: 0</span>
         <div class="progress"><div class="progress-fill" id="progreso-fill"></div></div>
         <button class="btn btn-ghost btn-small" id="btn-reiniciar" type="button">Reiniciar</button>
       </div>

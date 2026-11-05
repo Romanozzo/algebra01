@@ -326,6 +326,36 @@ input[type="range"] {
   cursor: pointer;
 }
 
+/* Campos numéricos de la calculadora cuadrática */
+.coefficients {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0;
+}
+
+.coefficients label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.coefficients input {
+  width: 5.5rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+.coefficients input:focus {
+  border-color: var(--brand);
+}
+
 .controls output {
   min-width: 3ch;
   text-align: center;
