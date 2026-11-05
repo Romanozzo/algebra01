@@ -1,0 +1,541 @@
+/* ============================================================
+   Álgebra desde cero — estilos
+   Todo está comentado para que puedas entender qué hace cada bloque.
+   ============================================================ */
+
+/* --- 1. Variables de diseño (colores y medidas) --- */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1c2030;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  --brand: #4f46e5;
+  --brand-dark: #4338ca;
+  --brand-soft: #eef2ff;
+  --success: #16a34a;
+  --success-soft: #dcfce7;
+  --error: #dc2626;
+  --error-soft: #fee2e2;
+
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(20, 24, 60, 0.08);
+  --max-width: 1040px;
+}
+
+/* --- 2. Reset básico --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- 3. Cabecera --- */
+.hero {
+  background: linear-gradient(135deg, #4338ca 0%, #6d28d9 55%, #0e7490 100%);
+  color: #fff;
+  padding: 1.5rem 1.25rem 4.5rem;
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.hero-content {
+  max-width: var(--max-width);
+  margin: 3.5rem auto 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #a5f3fc, #fde68a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  max-width: 46ch;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+/* --- 4. Botones --- */
+.btn {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.7rem 1.35rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: #fff;
+  color: var(--brand-dark);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.btn-primary:hover {
+  background: var(--brand-soft);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Botón dentro de las secciones (sobre fondo claro) */
+.section .btn-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.28);
+}
+
+.section .btn-primary:hover {
+  background: var(--brand-dark);
+}
+
+.section .btn-ghost {
+  border-color: var(--border);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.section .btn-ghost:hover {
+  background: #f3f4f6;
+}
+
+.btn-small {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+/* --- 5. Secciones --- */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  max-width: 70ch;
+  margin-bottom: 1rem;
+}
+
+/* --- 6. Tarjetas --- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-accent {
+  border-color: #c7d2fe;
+  background: linear-gradient(180deg, #ffffff, #f5f3ff);
+}
+
+/* --- 7. Fórmulas y notación --- */
+.formula {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--brand-dark);
+  margin: 0.4rem 0;
+}
+
+.formula-big {
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.math {
+  font-family: "Cambria Math", Georgia, serif;
+  font-style: italic;
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* --- 8. Bloque de ejemplo --- */
+.example {
+  background: var(--surface);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.75rem 0;
+  box-shadow: var(--shadow);
+}
+
+.example h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+
+/* --- 9. Zona interactiva --- */
+.interactive {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px dashed #c7d2fe;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.interactive h3 {
+  margin-bottom: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input[type="range"] {
+  flex: 1;
+  min-width: 180px;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+.controls output {
+  min-width: 3ch;
+  text-align: center;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.result {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.result strong {
+  color: var(--brand-dark);
+  font-size: 1.7rem;
+}
+
+/* --- 10. Pasos de la ecuación --- */
+.steps {
+  margin: 1.25rem 0 0 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.steps li {
+  padding-left: 0.4rem;
+  max-width: 60ch;
+}
+
+.step-title {
+  display: block;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.steps[hidden] {
+  display: none;
+}
+
+/* --- 11. Consejo --- */
+.tip {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+/* --- 12. Práctica --- */
+.score-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+}
+
+#progreso-texto {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.progress {
+  flex: 1;
+  min-width: 120px;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brand), #06b6d4);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.quiz {
+  display: grid;
+  gap: 1rem;
+}
+
+.question {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.question h3 {
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.options {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.option {
+  text-align: left;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.option.correcta {
+  background: var(--success-soft);
+  border-color: var(--success);
+  color: #14532d;
+  font-weight: 600;
+}
+
+.option.incorrecta {
+  background: var(--error-soft);
+  border-color: var(--error);
+  color: #7f1d1d;
+}
+
+.feedback {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.feedback.ok {
+  color: var(--success);
+}
+
+.feedback.ko {
+  color: var(--error);
+}
+
+.mensaje-final {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--brand-soft);
+  border: 1px solid #c7d2fe;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* --- 13. Pie --- */
+.footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--brand-dark);
+}
+
+/* --- 14. Accesibilidad: foco visible --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 2px;
+}
+
+/* --- 15. Móvil --- */
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 3rem;
+  }
+
+  .hero-content {
+    margin-top: 2.5rem;
+  }
+
+  .section {
+    padding: 2.5rem 1.1rem;
+  }
+
+  .formula-big {
+    font-size: 1.6rem;
+  }
+
+  .nav-links {
+    gap: 0.85rem;
+    font-size: 0.85rem;
+  }
+}

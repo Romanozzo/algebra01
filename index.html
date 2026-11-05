@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álgebra desde cero</title>
+  <meta name="description" content="Curso básico de álgebra con ejemplos y ejercicios interactivos.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="hero">
+    <nav class="nav">
+      <a class="logo" href="#">∑ Álgebra</a>
+      <div class="nav-links">
+        <a href="#leccion-1">Lección 1</a>
+        <a href="#leccion-2">Lección 2</a>
+        <a href="#leccion-3">Lección 3</a>
+        <a href="#leccion-4">Lección 4</a>
+        <a href="#practica">Práctica</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">Curso interactivo · Nivel principiante</p>
+      <h1>Álgebra <span>desde cero</span></h1>
+      <p class="lead">
+        Deja de memorizar fórmulas. Entiende qué significan las letras,
+        cómo se manipulan y para qué sirven.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#leccion-1">Empezar la lección 1</a>
+        <a class="btn btn-ghost" href="#practica">Ir directo a practicar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ LECCIÓN 1 ============ -->
+    <section id="leccion-1" class="section">
+      <p class="badge">Lección 1</p>
+      <h2>¿Qué es el álgebra?</h2>
+
+      <p>
+        El álgebra es el lenguaje que usamos para describir <strong>patrones</strong>
+        y <strong>relaciones</strong> usando letras en lugar de números concretos.
+        Una letra (como <em>x</em>) representa un número que todavía no conocemos.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Con números</h3>
+          <p class="formula">3 + 3 = 6</p>
+          <p class="muted">Solo funciona para ese caso.</p>
+        </article>
+
+        <article class="card card-accent">
+          <h3>Con álgebra</h3>
+          <p class="formula">a + a = 2a</p>
+          <p class="muted">Funciona para <em>cualquier</em> número.</p>
+        </article>
+      </div>
+
+      <div class="example">
+        <h3>Un ejemplo real</h3>
+        <p>
+          Un cuaderno cuesta <span class="math">x</span> euros. Si compras 4 cuadernos,
+          pagas <span class="math">4x</span>. Si además pagas 2 € de envío, el total es:
+        </p>
+        <p class="formula formula-big">4x + 2</p>
+        <p class="muted">
+          Esa expresión sirve para cualquier precio: si x = 3, pagas 14 €; si x = 5, pagas 22 €.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ LECCIÓN 2 ============ -->
+    <section id="leccion-2" class="section">
+      <p class="badge">Lección 2</p>
+      <h2>Variables y expresiones</h2>
+
+      <p>
+        Una <strong>variable</strong> es la letra. Una <strong>expresión</strong> es una
+        combinación de números, variables y operaciones. No lleva signo <em>=</em>.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <p class="formula">2x + 3</p>
+          <p class="muted">Expresión: se puede evaluar, pero no "resolver".</p>
+        </article>
+        <article class="card">
+          <p class="formula">2x + 3 = 11</p>
+          <p class="muted">Ecuación: tiene un signo igual y una solución.</p>
+        </article>
+      </div>
+
+      <div class="interactive">
+        <h3>Pruébalo tú</h3>
+        <p>Elige un valor para <span class="math">x</span> y mira cómo cambia la expresión <span class="math">2x + 3</span>.</p>
+
+        <div class="controls">
+          <label for="x-valor">Valor de x</label>
+          <input type="range" id="x-valor" min="-10" max="10" value="2" step="1">
+          <output id="x-mostrado" for="x-valor">2</output>
+        </div>
+
+        <p class="result">
+          2 · <span id="x-repetido">2</span> + 3 =
+          <strong id="resultado">7</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ LECCIÓN 3 ============ -->
+    <section id="leccion-3" class="section">
+      <p class="badge">Lección 3</p>
+      <h2>Resolver una ecuación lineal</h2>
+
+      <p>
+        Resolver una ecuación es <strong>dejar la x sola</strong> a un lado. La regla de oro:
+        lo que haces en un lado, lo haces en el otro.
+      </p>
+
+      <div class="example">
+        <p class="formula formula-big">2x + 3 = 11</p>
+
+        <button class="btn btn-primary" id="btn-pasos" type="button">
+          Ver los pasos
+        </button>
+
+        <ol class="steps" id="pasos" hidden>
+          <li>
+            <span class="step-title">Quita el 3</span>
+            Resta 3 en los dos lados:
+            <span class="math">2x = 11 − 3</span> → <span class="math">2x = 8</span>
+          </li>
+          <li>
+            <span class="step-title">Quita el 2</span>
+            Divide entre 2 en los dos lados:
+            <span class="math">x = 8 / 2</span> → <span class="math">x = 4</span>
+          </li>
+          <li>
+            <span class="step-title">Comprueba</span>
+            <span class="math">2 · 4 + 3 = 8 + 3 = 11</span> ✓
+          </li>
+        </ol>
+      </div>
+
+      <div class="tip">
+        <strong>Truco mental:</strong> si algo suma, pasa restando; si multiplica, pasa dividiendo.
+        Pero cuidado: solo funciona si lo aplicas a <em>toda</em> la expresión.
+      </div>
+    </section>
+
+    <!-- ============ LECCIÓN 4 ============ -->
+    <section id="leccion-4" class="section">
+      <p class="badge">Lección 4</p>
+      <h2>Factorizar: el camino de vuelta</h2>
+
+      <p>
+        Multiplicar convierte un producto en una suma: <span class="math">(x + 2)(x + 3) = x² + 5x + 6</span>.
+        <strong>Factorizar</strong> es hacer el recorrido inverso: partir de la suma y
+        escribirla como producto de factores más simples.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>1. Factor común</h3>
+          <p class="formula">6x² + 9x = 3x(2x + 3)</p>
+          <p class="muted">Buscamos lo que se repite en todos los términos: 3 y x.</p>
+        </article>
+
+        <article class="card">
+          <h3>2. Diferencia de cuadrados</h3>
+          <p class="formula">x² − 9 = (x − 3)(x + 3)</p>
+          <p class="muted">Dos cuadrados que se restan: <span class="math">a² − b² = (a − b)(a + b)</span>.</p>
+        </article>
+
+        <article class="card">
+          <h3>3. Trinomio</h3>
+          <p class="formula">x² + 5x + 6 = (x + 2)(x + 3)</p>
+          <p class="muted">Dos números que multiplican 6 y suman 5.</p>
+        </article>
+      </div>
+
+      <div class="example">
+        <h3>Ejemplo resuelto paso a paso</h3>
+        <p class="formula formula-big">x² + 5x + 6</p>
+
+        <button class="btn btn-primary" id="btn-pasos-4" type="button">
+          Ver los pasos
+        </button>
+
+        <ol class="steps" id="pasos-4" hidden>
+          <li>
+            <span class="step-title">Paso 1: busca dos números</span>
+            Deben multiplicarse y dar 6, y sumarse y dar 5.
+            Prueba: <span class="math">2 · 3 = 6</span> y <span class="math">2 + 3 = 5</span>. ✓
+          </li>
+          <li>
+            <span class="step-title">Paso 2: escríbelos como factores</span>
+            <span class="math">(x + 2)(x + 3)</span>
+          </li>
+          <li>
+            <span class="step-title">Paso 3: comprueba multiplicando</span>
+            <span class="math">(x + 2)(x + 3) = x² + 3x + 2x + 6 = x² + 5x + 6</span> ✓
+          </li>
+        </ol>
+      </div>
+
+      <div class="tip">
+        <strong>Regla práctica:</strong> factoriza siempre en este orden:
+        <em>factor común</em> → <em>diferencia de cuadrados</em> → <em>trinomio</em>.
+        Si empiezas por el factor común, el resto suele salir solo.
+      </div>
+    </section>
+
+    <!-- ============ PRÁCTICA ============ -->
+    <section id="practica" class="section">
+      <p class="badge">Práctica</p>
+      <h2>Pon a prueba lo aprendido</h2>
+      <p class="muted">8 preguntas. Elige una respuesta y recibirás feedback al instante.</p>
+
+      <div class="score-bar">
+        <span id="progreso-texto">Aciertos: 0 de 8</span>
+        <div class="progress"><div class="progress-fill" id="progreso-fill"></div></div>
+        <button class="btn btn-ghost btn-small" id="btn-reiniciar" type="button">Reiniciar</button>
+      </div>
+
+      <div id="quiz" class="quiz"></div>
+
+      <p class="mensaje-final" id="mensaje-final" hidden></p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Hecho con HTML, CSS y JavaScript · Sin frameworks, sin dependencias.</p>
+    <p class="muted">Proyecto de aprendizaje · <a href="#leccion-1">Volver arriba</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
